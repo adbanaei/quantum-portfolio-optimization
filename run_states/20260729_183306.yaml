@@ -1,0 +1,2476 @@
+meta:
+  generated_at: '2026-07-29T18:33:05'
+  paper: Buonaiuto, G., Gargiulo, F., De Pietro, G., Esposito, M., & Pota, M. (2023). Best practices for
+    portfolio optimization by quantum computing, experimented on real quantum devices. Scientific Reports,
+    13, 19434. https://doi.org/10.1038/s41598-023-45392-w
+  note: 'Auto-generated snapshot of this notebook''s configuration and results. Best-effort: sections
+    not executed in this kernel session are listed under missing_top_level_names / section_errors instead
+    of raising.'
+environment:
+  python_version: 3.12.13
+  platform: Linux-6.6.122+-x86_64-with-glibc2.35
+  in_colab: true
+  pythonhashseed: null
+  packages:
+    qiskit: 1.4.6
+    qiskit-aer: null
+    qiskit-aer-gpu: 0.15.1
+    qiskit-algorithms: 0.4.0
+    qiskit-optimization: 0.7.0
+    qiskit-ibm-runtime: 0.29.0
+    numpy: 2.0.2
+    pandas: 2.2.2
+    matplotlib: 3.10.0
+    scipy: 1.16.3
+    joblib: 1.5.3
+    yfinance: 0.2.66
+    pyyaml: 6.0.3
+config:
+  tickers:
+  - AAPL
+  - IBM
+  - NFLX
+  - TSLA
+  start_date: '2011-12-23'
+  end_date: '2022-10-21'
+  budget: 2000
+  risk_aversion_q: 0.5
+  penalty_lambda: 10.0
+  random_seed: 42
+  vqe_shots: 2000
+  default_reps: 3
+  default_entanglement: linear
+  default_maxiter: 200
+  ansatz_maxiter: 100
+  default_progress_every: 10
+  ansatz_progress_every: 25
+  price_data_dir: /content/drive/MyDrive/quantum-portfolio-optimization/price_data
+  cache_dir: /content/drive/MyDrive/quantum-portfolio-optimization/.cache_dir
+  plot_dir: /content/drive/MyDrive/quantum-portfolio-optimization/.plots
+  show_plots: false
+  save_plots: true
+market_data:
+  tickers:
+  - AAPL
+  - IBM
+  - NFLX
+  - TSLA
+  n_trading_days: 2724
+  date_range:
+  - '2011-12-23'
+  - '2022-10-20'
+  last_close_prices:
+    AAPL: 142.92441324106014
+    IBM: 125.43799026332157
+    NFLX: 268.1599998474121
+    TSLA: 207.27999877929688
+  note: Full daily series intentionally not embedded -- already persisted verbatim in <TICKER>.csv under
+    price_data_dir (see config).
+  N_assets: 4
+  P_current_prices:
+  - 142.92441324106014
+  - 125.43799026332157
+  - 268.1599998474121
+  - 207.27999877929688
+  mu_expected_daily_returns:
+  - 0.001067221660732754
+  - 0.00013276430831082658
+  - 0.0016868097814652986
+  - 0.0023624172247908998
+  Sigma_covariance:
+  - - 0.0003292041353250041
+    - 0.00010051462845254382
+    - 0.00016437689636072912
+    - 0.00023032507868287448
+  - - 0.00010051462845254382
+    - 0.00020869464876230106
+    - 6.661800472468495e-05
+    - 0.00010530628255399763
+  - - 0.00016437689636072912
+    - 6.661800472468495e-05
+    - 0.0009887622713682055
+    - 0.00033145110538600333
+  - - 0.00023032507868287448
+    - 0.00010530628255399763
+    - 0.00033145110538600333
+    - 0.0012676606120712037
+integer_formulation:
+  P_prime:
+  - 0.07146220662053007
+  - 0.06271899513166078
+  - 0.13407999992370606
+  - 0.10363999938964844
+  mu_prime:
+  - 7.626601482918931e-05
+  - 8.326844006605043e-06
+  - 0.00022616745537017388
+  - 0.0002448409197354238
+  Sigma_prime:
+  - - 1.6811951426667876e-06
+    - 4.5051036308473953e-07
+    - 1.5750023259661372e-06
+    - 1.7058665458667577e-06
+  - - 4.5051036308473953e-07
+    - 8.209363694971113e-07
+    - 5.602149749034833e-07
+    - 6.84511541623684e-07
+  - - 1.5750023259661372e-06
+    - 5.602149749034833e-07
+    - 1.77754207156351e-05
+    - 4.605861500995068e-06
+  - - 1.705866545866758e-06
+    - 6.84511541623684e-07
+    - 4.605861500995068e-06
+    - 1.3616258881969174e-05
+binary_encoding:
+  n_max_per_asset:
+  - 13
+  - 15
+  - 7
+  - 9
+  d_i_per_asset:
+  - 3
+  - 3
+  - 2
+  - 3
+  dim_b_total_qubits: 15
+  encoding_matrix_C:
+  - - 1.0
+    - 2.0
+    - 4.0
+    - 8.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 2.0
+    - 4.0
+    - 8.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 2.0
+    - 4.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 2.0
+    - 4.0
+    - 8.0
+  mu_pp:
+  - 7.626601482918931e-05
+  - 0.00015253202965837863
+  - 0.00030506405931675725
+  - 0.0006101281186335145
+  - 8.326844006605043e-06
+  - 1.6653688013210085e-05
+  - 3.330737602642017e-05
+  - 6.661475205284034e-05
+  - 0.00022616745537017388
+  - 0.00045233491074034776
+  - 0.0009046698214806955
+  - 0.0002448409197354238
+  - 0.0004896818394708476
+  - 0.0009793636789416952
+  - 0.0019587273578833904
+  Sigma_pp:
+  - - 1.6811951426667876e-06
+    - 3.362390285333575e-06
+    - 6.72478057066715e-06
+    - 1.34495611413343e-05
+    - 4.5051036308473953e-07
+    - 9.010207261694791e-07
+    - 1.8020414523389581e-06
+    - 3.6040829046779162e-06
+    - 1.5750023259661372e-06
+    - 3.1500046519322745e-06
+    - 6.300009303864549e-06
+    - 1.7058665458667577e-06
+    - 3.4117330917335155e-06
+    - 6.823466183467031e-06
+    - 1.3646932366934062e-05
+  - - 3.362390285333575e-06
+    - 6.72478057066715e-06
+    - 1.34495611413343e-05
+    - 2.68991222826686e-05
+    - 9.010207261694791e-07
+    - 1.8020414523389581e-06
+    - 3.6040829046779162e-06
+    - 7.2081658093558324e-06
+    - 3.1500046519322745e-06
+    - 6.300009303864549e-06
+    - 1.2600018607729098e-05
+    - 3.4117330917335155e-06
+    - 6.823466183467031e-06
+    - 1.3646932366934062e-05
+    - 2.7293864733868124e-05
+  - - 6.72478057066715e-06
+    - 1.34495611413343e-05
+    - 2.68991222826686e-05
+    - 5.37982445653372e-05
+    - 1.8020414523389581e-06
+    - 3.6040829046779162e-06
+    - 7.2081658093558324e-06
+    - 1.4416331618711665e-05
+    - 6.300009303864549e-06
+    - 1.2600018607729098e-05
+    - 2.5200037215458196e-05
+    - 6.823466183467031e-06
+    - 1.3646932366934062e-05
+    - 2.7293864733868124e-05
+    - 5.458772946773625e-05
+  - - 1.34495611413343e-05
+    - 2.68991222826686e-05
+    - 5.37982445653372e-05
+    - 0.0001075964891306744
+    - 3.6040829046779162e-06
+    - 7.2081658093558324e-06
+    - 1.4416331618711665e-05
+    - 2.883266323742333e-05
+    - 1.2600018607729098e-05
+    - 2.5200037215458196e-05
+    - 5.040007443091639e-05
+    - 1.3646932366934062e-05
+    - 2.7293864733868124e-05
+    - 5.458772946773625e-05
+    - 0.0001091754589354725
+  - - 4.5051036308473953e-07
+    - 9.010207261694791e-07
+    - 1.8020414523389581e-06
+    - 3.6040829046779162e-06
+    - 8.209363694971113e-07
+    - 1.6418727389942226e-06
+    - 3.2837454779884452e-06
+    - 6.5674909559768904e-06
+    - 5.602149749034833e-07
+    - 1.1204299498069666e-06
+    - 2.240859899613933e-06
+    - 6.84511541623684e-07
+    - 1.369023083247368e-06
+    - 2.738046166494736e-06
+    - 5.476092332989472e-06
+  - - 9.010207261694791e-07
+    - 1.8020414523389581e-06
+    - 3.6040829046779162e-06
+    - 7.2081658093558324e-06
+    - 1.6418727389942226e-06
+    - 3.2837454779884452e-06
+    - 6.5674909559768904e-06
+    - 1.3134981911953781e-05
+    - 1.1204299498069666e-06
+    - 2.240859899613933e-06
+    - 4.481719799227866e-06
+    - 1.369023083247368e-06
+    - 2.738046166494736e-06
+    - 5.476092332989472e-06
+    - 1.0952184665978944e-05
+  - - 1.8020414523389581e-06
+    - 3.6040829046779162e-06
+    - 7.2081658093558324e-06
+    - 1.4416331618711665e-05
+    - 3.2837454779884452e-06
+    - 6.5674909559768904e-06
+    - 1.3134981911953781e-05
+    - 2.6269963823907562e-05
+    - 2.240859899613933e-06
+    - 4.481719799227866e-06
+    - 8.963439598455733e-06
+    - 2.738046166494736e-06
+    - 5.476092332989472e-06
+    - 1.0952184665978944e-05
+    - 2.190436933195789e-05
+  - - 3.6040829046779162e-06
+    - 7.2081658093558324e-06
+    - 1.4416331618711665e-05
+    - 2.883266323742333e-05
+    - 6.5674909559768904e-06
+    - 1.3134981911953781e-05
+    - 2.6269963823907562e-05
+    - 5.2539927647815123e-05
+    - 4.481719799227866e-06
+    - 8.963439598455733e-06
+    - 1.7926879196911466e-05
+    - 5.476092332989472e-06
+    - 1.0952184665978944e-05
+    - 2.190436933195789e-05
+    - 4.380873866391578e-05
+  - - 1.5750023259661372e-06
+    - 3.1500046519322745e-06
+    - 6.300009303864549e-06
+    - 1.2600018607729098e-05
+    - 5.602149749034833e-07
+    - 1.1204299498069666e-06
+    - 2.240859899613933e-06
+    - 4.481719799227866e-06
+    - 1.77754207156351e-05
+    - 3.55508414312702e-05
+    - 7.11016828625404e-05
+    - 4.605861500995068e-06
+    - 9.211723001990136e-06
+    - 1.8423446003980272e-05
+    - 3.6846892007960544e-05
+  - - 3.1500046519322745e-06
+    - 6.300009303864549e-06
+    - 1.2600018607729098e-05
+    - 2.5200037215458196e-05
+    - 1.1204299498069666e-06
+    - 2.240859899613933e-06
+    - 4.481719799227866e-06
+    - 8.963439598455733e-06
+    - 3.55508414312702e-05
+    - 7.11016828625404e-05
+    - 0.0001422033657250808
+    - 9.211723001990136e-06
+    - 1.8423446003980272e-05
+    - 3.6846892007960544e-05
+    - 7.369378401592109e-05
+  - - 6.300009303864549e-06
+    - 1.2600018607729098e-05
+    - 2.5200037215458196e-05
+    - 5.040007443091639e-05
+    - 2.240859899613933e-06
+    - 4.481719799227866e-06
+    - 8.963439598455733e-06
+    - 1.7926879196911466e-05
+    - 7.11016828625404e-05
+    - 0.0001422033657250808
+    - 0.0002844067314501616
+    - 1.8423446003980272e-05
+    - 3.6846892007960544e-05
+    - 7.369378401592109e-05
+    - 0.00014738756803184217
+  - - 1.705866545866758e-06
+    - 3.411733091733516e-06
+    - 6.823466183467032e-06
+    - 1.3646932366934064e-05
+    - 6.84511541623684e-07
+    - 1.369023083247368e-06
+    - 2.738046166494736e-06
+    - 5.476092332989472e-06
+    - 4.605861500995068e-06
+    - 9.211723001990136e-06
+    - 1.8423446003980272e-05
+    - 1.3616258881969174e-05
+    - 2.7232517763938348e-05
+    - 5.4465035527876696e-05
+    - 0.00010893007105575339
+  - - 3.411733091733516e-06
+    - 6.823466183467032e-06
+    - 1.3646932366934064e-05
+    - 2.7293864733868127e-05
+    - 1.369023083247368e-06
+    - 2.738046166494736e-06
+    - 5.476092332989472e-06
+    - 1.0952184665978944e-05
+    - 9.211723001990136e-06
+    - 1.8423446003980272e-05
+    - 3.6846892007960544e-05
+    - 2.7232517763938348e-05
+    - 5.4465035527876696e-05
+    - 0.00010893007105575339
+    - 0.00021786014211150678
+  - - 6.823466183467032e-06
+    - 1.3646932366934064e-05
+    - 2.7293864733868127e-05
+    - 5.4587729467736254e-05
+    - 2.738046166494736e-06
+    - 5.476092332989472e-06
+    - 1.0952184665978944e-05
+    - 2.190436933195789e-05
+    - 1.8423446003980272e-05
+    - 3.6846892007960544e-05
+    - 7.369378401592109e-05
+    - 5.4465035527876696e-05
+    - 0.00010893007105575339
+    - 0.00021786014211150678
+    - 0.00043572028422301357
+  - - 1.3646932366934064e-05
+    - 2.7293864733868127e-05
+    - 5.4587729467736254e-05
+    - 0.00010917545893547251
+    - 5.476092332989472e-06
+    - 1.0952184665978944e-05
+    - 2.190436933195789e-05
+    - 4.380873866391578e-05
+    - 3.6846892007960544e-05
+    - 7.369378401592109e-05
+    - 0.00014738756803184217
+    - 0.00010893007105575339
+    - 0.00021786014211150678
+    - 0.00043572028422301357
+    - 0.0008714405684460271
+  P_pp:
+  - 0.07146220662053007
+  - 0.14292441324106014
+  - 0.2858488264821203
+  - 0.5716976529642406
+  - 0.06271899513166078
+  - 0.12543799026332156
+  - 0.2508759805266431
+  - 0.5017519610532862
+  - 0.13407999992370606
+  - 0.2681599998474121
+  - 0.5363199996948242
+  - 0.10363999938964844
+  - 0.20727999877929687
+  - 0.41455999755859374
+  - 0.8291199951171875
+qubo_and_hamiltonian:
+  qubo_num_binary_vars: 15
+  ising_num_qubits: 15
+  ising_num_pauli_terms: 120
+  ising_energy_offset: 20.843857926226065
+  hamiltonian_fingerprint: 0c6f9f31a7e7d64d
+classical_benchmark:
+  optimal_bitstring:
+  - 0
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 1
+  - 0
+  - 0
+  - 1
+  - 1
+  - 1
+  - 0
+  optimal_units_per_asset:
+    AAPL: 2.0
+    IBM: 0.0
+    NFLX: 1.0
+    TSLA: 7.0
+  objective_value: 0.001625741437682435
+  brute_force_search_time_seconds: 0.2973806858062744
+  total_spend_usd: 2004.9688177846106
+  search_space_size_2pow_dimb: 32768
+vqe_ideal_single_run:
+  ansatz:
+    class: TwoLocal
+    num_qubits: 15
+    reps: 3
+    entanglement: linear
+    rotation_blocks:
+    - QuantumCircuit
+    - QuantumCircuit
+    entanglement_blocks:
+    - QuantumCircuit
+  optimizer:
+    class: COBYLA
+    maxiter: 200
+  sampler:
+    shots: 2000
+    backend_options:
+      method: statevector
+      device: GPU
+    sampler_seed: 42
+  n_iterations: 200
+  elapsed_seconds: 18.860337257385254
+  eigenvalue: -19.48089219075598
+  decoded_bits:
+  - 0.0
+  - 1.0
+  - 1.0
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  decoded_units_per_asset:
+  - 6.0
+  - 5.0
+  - 0.0
+  - 1.0
+  objective_value: -0.23646513236549574
+  convergence:
+    n_iters: 200
+    first_energy: 4.557371444440243
+    last_energy: -18.924599760639158
+    min_energy: -19.48089219075598
+    min_at_iter: 198
+  matches_classical: false
+ansatz_optimizer_sweep_noiseless:
+  ansatz_configs:
+    PauliTwo:
+      class: PauliTwoDesign
+      num_qubits: 15
+      reps: 3
+      entanglement: pairwise
+      rotation_blocks: []
+      entanglement_blocks:
+      - QuantumCircuit
+    TwoLocal linear:
+      class: TwoLocal
+      num_qubits: 15
+      reps: 3
+      entanglement: linear
+      rotation_blocks:
+      - QuantumCircuit
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+    TwoLocal full:
+      class: TwoLocal
+      num_qubits: 15
+      reps: 3
+      entanglement: full
+      rotation_blocks:
+      - QuantumCircuit
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+    TwoLocal circular:
+      class: TwoLocal
+      num_qubits: 15
+      reps: 3
+      entanglement: circular
+      rotation_blocks:
+      - QuantumCircuit
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+    TwoLocal pairwise:
+      class: TwoLocal
+      num_qubits: 15
+      reps: 3
+      entanglement: pairwise
+      rotation_blocks:
+      - QuantumCircuit
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+    RealAmplit. linear:
+      class: RealAmplitudes
+      num_qubits: 15
+      reps: 3
+      entanglement: linear
+      rotation_blocks:
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+    RealAmplit. full:
+      class: RealAmplitudes
+      num_qubits: 15
+      reps: 3
+      entanglement: full
+      rotation_blocks:
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+    RealAmplit. circular:
+      class: RealAmplitudes
+      num_qubits: 15
+      reps: 3
+      entanglement: circular
+      rotation_blocks:
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+    RealAmplit. pairwise:
+      class: RealAmplitudes
+      num_qubits: 15
+      reps: 3
+      entanglement: pairwise
+      rotation_blocks:
+      - QuantumCircuit
+      entanglement_blocks:
+      - QuantumCircuit
+  ansatz_order:
+  - PauliTwo
+  - TwoLocal linear
+  - TwoLocal full
+  - TwoLocal circular
+  - TwoLocal pairwise
+  - RealAmplit. linear
+  - RealAmplit. full
+  - RealAmplit. circular
+  - RealAmplit. pairwise
+  optimizer_order:
+  - Cobyla
+  - SPSA
+  - NFT
+  results:
+    Cobyla:
+      PauliTwo:
+        objective: -2.7314969028916085
+        matches_classical: false
+        elapsed_seconds: 7.58648681640625
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 0.0
+        - 1.0
+        - 0.0
+        - 4.0
+        convergence:
+          n_iters: 100
+          first_energy: -2.8112385387603385
+          last_energy: -18.366261921198472
+          min_energy: -18.366261921198472
+          min_at_iter: 99
+        eigenvalue: -18.366261921198472
+      TwoLocal linear:
+        objective: -1.2928351072731377
+        matches_classical: false
+        elapsed_seconds: 8.190173149108887
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 4.0
+        - 0.0
+        - 1.0
+        convergence:
+          n_iters: 122
+          first_energy: 4.557371444440243
+          last_energy: -18.019735311987088
+          min_energy: -18.019735311987088
+          min_at_iter: 121
+        eigenvalue: -18.019735311987088
+      TwoLocal full:
+        objective: -1.9056721074668517
+        matches_classical: false
+        elapsed_seconds: 15.682406663894653
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 13.0
+        - 1.0
+        - 1.0
+        - 3.0
+        convergence:
+          n_iters: 122
+          first_energy: 3.101720944029064
+          last_energy: -11.574016104411152
+          min_energy: -11.574016104411152
+          min_at_iter: 121
+        eigenvalue: -11.574016104411152
+      TwoLocal circular:
+        objective: -1.40195812241402
+        matches_classical: false
+        elapsed_seconds: 14.886489152908325
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 5.0
+        - 0.0
+        - 2.0
+        - 0.0
+        convergence:
+          n_iters: 122
+          first_energy: -0.4806365412239365
+          last_energy: -17.225760749480905
+          min_energy: -17.225760749480905
+          min_at_iter: 121
+        eigenvalue: -17.225760749480905
+      TwoLocal pairwise:
+        objective: -1.2928351072731377
+        matches_classical: false
+        elapsed_seconds: 7.659662246704102
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 4.0
+        - 0.0
+        - 1.0
+        convergence:
+          n_iters: 122
+          first_energy: 4.557371444440243
+          last_energy: -18.019735311987088
+          min_energy: -18.019735311987088
+          min_at_iter: 121
+        eigenvalue: -18.019735311987088
+      RealAmplit. linear:
+        objective: -0.34684320769881266
+        matches_classical: false
+        elapsed_seconds: 7.13498592376709
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 2.0
+        - 3.0
+        - 0.0
+        convergence:
+          n_iters: 100
+          first_energy: -1.8241446542894797
+          last_energy: -14.459881820207938
+          min_energy: -14.929590518575377
+          min_at_iter: 85
+        eigenvalue: -14.929590518575377
+      RealAmplit. full:
+        objective: -0.7513496995906428
+        matches_classical: false
+        elapsed_seconds: 9.564049482345581
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 8.0
+        - 1.0
+        - 4.0
+        - 1.0
+        convergence:
+          n_iters: 100
+          first_energy: -2.4110737799418662
+          last_energy: -16.90110753993855
+          min_energy: -17.405322337897772
+          min_at_iter: 90
+        eigenvalue: -17.405322337897772
+      RealAmplit. circular:
+        objective: -10.64209659730465
+        matches_classical: false
+        elapsed_seconds: 10.26870346069336
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 0.0
+        - 8.0
+        - 6.0
+        - 7.0
+        convergence:
+          n_iters: 100
+          first_energy: 0.11222737606549116
+          last_energy: -9.579783449959452
+          min_energy: -10.073869634177301
+          min_at_iter: 98
+        eigenvalue: -10.073869634177301
+      RealAmplit. pairwise:
+        objective: -1.5921129546704451
+        matches_classical: false
+        elapsed_seconds: 7.242536783218384
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 0.0
+        - 2.0
+        - 2.0
+        - 2.0
+        convergence:
+          n_iters: 100
+          first_energy: -1.070342892204402
+          last_energy: -17.31812562774802
+          min_energy: -17.467833646803268
+          min_at_iter: 90
+        eigenvalue: -17.467833646803268
+    SPSA:
+      PauliTwo:
+        objective: -2.8620840226506568
+        matches_classical: false
+        elapsed_seconds: 7.059540748596191
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 0.0
+        - 1.0
+        - 3.0
+        - 0.0
+        convergence:
+          n_iters: 151
+          first_energy: -3.599534249962663
+          last_energy: -18.213805783895214
+          min_energy: -18.590882252407148
+          min_at_iter: 142
+        eigenvalue: -18.213805783895214
+      TwoLocal linear:
+        objective: -0.23294274095983075
+        matches_classical: false
+        elapsed_seconds: 10.873605251312256
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 1.0
+        - 6.0
+        - 0.0
+        convergence:
+          n_iters: 151
+          first_energy: 9.818388697315365
+          last_energy: -17.53534363867445
+          min_energy: -17.55834843332307
+          min_at_iter: 128
+        eigenvalue: -17.53534363867445
+      TwoLocal full:
+        objective: -1.427087085969999
+        matches_classical: false
+        elapsed_seconds: 15.008311986923218
+        decoded_bits:
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 3.0
+        - 10.0
+        - 4.0
+        - 0.0
+        convergence:
+          n_iters: 151
+          first_energy: 6.894518309500442
+          last_energy: -15.27014070065743
+          min_energy: -15.554487597243197
+          min_at_iter: 146
+        eigenvalue: -15.27014070065743
+      TwoLocal circular:
+        objective: -0.384061118635398
+        matches_classical: false
+        elapsed_seconds: 11.872404336929321
+        decoded_bits:
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 3.0
+        - 14.0
+        - 0.0
+        - 1.0
+        convergence:
+          n_iters: 151
+          first_energy: 2.952750921175997
+          last_energy: -18.176501681170166
+          min_energy: -18.253118197582925
+          min_at_iter: 140
+        eigenvalue: -18.176501681170166
+      TwoLocal pairwise:
+        objective: -0.23294274095983075
+        matches_classical: false
+        elapsed_seconds: 10.95197081565857
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 1.0
+        - 6.0
+        - 0.0
+        convergence:
+          n_iters: 151
+          first_energy: 9.818388697315365
+          last_energy: -17.53534363867445
+          min_energy: -17.55834843332307
+          min_at_iter: 128
+        eigenvalue: -17.53534363867445
+      RealAmplit. linear:
+        objective: -2.868399952791885
+        matches_classical: false
+        elapsed_seconds: 6.1466028690338135
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 8.0
+        - 4.0
+        - 3.0
+        - 3.0
+        convergence:
+          n_iters: 151
+          first_energy: -1.5102435567772192
+          last_energy: -16.697048826066638
+          min_energy: -16.697048826066638
+          min_at_iter: 150
+        eigenvalue: -16.697048826066638
+      RealAmplit. full:
+        objective: -1.5441360063805718
+        matches_classical: false
+        elapsed_seconds: 11.367342472076416
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 9.0
+        - 7.0
+        - 0.0
+        - 3.0
+        convergence:
+          n_iters: 151
+          first_energy: -2.181775314763502
+          last_energy: -15.907407112781017
+          min_energy: -15.907407112781017
+          min_at_iter: 150
+        eigenvalue: -15.907407112781017
+      RealAmplit. circular:
+        objective: 0.001366325034527667
+        matches_classical: false
+        elapsed_seconds: 7.745168209075928
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 5.0
+        - 2.0
+        - 0.0
+        - 5.0
+        convergence:
+          n_iters: 151
+          first_energy: 0.9401797681133699
+          last_energy: -15.049572164888897
+          min_energy: -15.049572164888897
+          min_at_iter: 150
+        eigenvalue: -15.049572164888897
+      RealAmplit. pairwise:
+        objective: -5.3541186539175945
+        matches_classical: false
+        elapsed_seconds: 7.2148597240448
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        convergence:
+          n_iters: 151
+          first_energy: 0.07121938366817268
+          last_energy: -18.140698914137058
+          min_energy: -18.140698914137058
+          min_at_iter: 150
+        eigenvalue: -18.140698914137058
+    NFT:
+      PauliTwo:
+        objective: -0.005119786189623344
+        matches_classical: false
+        elapsed_seconds: 6.777709245681763
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 4.0
+        - 1.0
+        - 5.0
+        convergence:
+          n_iters: 103
+          first_energy: -2.8112385387603385
+          last_energy: -20.235113741062637
+          min_energy: -20.235113741062637
+          min_at_iter: 96
+        eigenvalue: -20.235113741062637
+      TwoLocal linear:
+        objective: -1.6826501743531765
+        matches_classical: false
+        elapsed_seconds: 6.580231189727783
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 5.0
+        convergence:
+          n_iters: 103
+          first_energy: 4.557371444440243
+          last_energy: -19.361368915758103
+          min_energy: -19.404047817086674
+          min_at_iter: 87
+        eigenvalue: -19.361368915758103
+      TwoLocal full:
+        objective: -1.5375163849648035
+        matches_classical: false
+        elapsed_seconds: 12.161583185195923
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 0.0
+        - 4.0
+        - 0.0
+        convergence:
+          n_iters: 103
+          first_energy: 3.101720944029064
+          last_energy: -16.29604506311139
+          min_energy: -16.401365533728335
+          min_at_iter: 97
+        eigenvalue: -16.29604506311139
+      TwoLocal circular:
+        objective: -1.7692116886787312
+        matches_classical: false
+        elapsed_seconds: 7.393205165863037
+        decoded_bits:
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 2.0
+        - 2.0
+        - 0.0
+        - 3.0
+        convergence:
+          n_iters: 103
+          first_energy: -0.4806365412239365
+          last_energy: -19.246002941380205
+          min_energy: -19.25769753454727
+          min_at_iter: 100
+        eigenvalue: -19.246002941380205
+      TwoLocal pairwise:
+        objective: -1.6826501743531765
+        matches_classical: false
+        elapsed_seconds: 6.527326583862305
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 5.0
+        convergence:
+          n_iters: 103
+          first_energy: 4.557371444440243
+          last_energy: -19.361368915758103
+          min_energy: -19.404047817086674
+          min_at_iter: 87
+        eigenvalue: -19.361368915758103
+      RealAmplit. linear:
+        objective: -2.837477552612491
+        matches_classical: false
+        elapsed_seconds: 5.33974814414978
+        decoded_bits:
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 2.0
+        - 7.0
+        - 4.0
+        - 4.0
+        convergence:
+          n_iters: 103
+          first_energy: -1.8241446542894797
+          last_energy: -15.652566703668123
+          min_energy: -15.664638776299954
+          min_at_iter: 100
+        eigenvalue: -15.652566703668123
+      RealAmplit. full:
+        objective: -0.3751935177567379
+        matches_classical: false
+        elapsed_seconds: 8.511053085327148
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 5.0
+        - 1.0
+        - 5.0
+        - 1.0
+        convergence:
+          n_iters: 103
+          first_energy: -2.4110737799418662
+          last_energy: -19.213179443412546
+          min_energy: -19.242878405604877
+          min_at_iter: 100
+        eigenvalue: -19.213179443412546
+      RealAmplit. circular:
+        objective: -0.21854217480245292
+        matches_classical: false
+        elapsed_seconds: 5.567785978317261
+        decoded_bits:
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 2.0
+        - 8.0
+        - 0.0
+        - 2.0
+        convergence:
+          n_iters: 103
+          first_energy: 0.11222737606549116
+          last_energy: -12.327954703070667
+          min_energy: -12.569109418771973
+          min_at_iter: 100
+        eigenvalue: -12.327954703070667
+      RealAmplit. pairwise:
+        objective: -1.0726706692675685
+        matches_classical: false
+        elapsed_seconds: 6.029147624969482
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 2.0
+        - 2.0
+        - 2.0
+        convergence:
+          n_iters: 103
+          first_energy: -1.070342892204402
+          last_energy: -18.877752166241795
+          min_energy: -18.877752166241795
+          min_at_iter: 102
+        eigenvalue: -18.877752166241795
+optimizer_sweep_noiseless:
+  COBYLA:
+    objective: -0.23646513236549574
+    matches_classical: false
+    elapsed_seconds: 18.860337257385254
+    decoded_bits:
+    - 0.0
+    - 1.0
+    - 1.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    decoded_units:
+    - 6.0
+    - 5.0
+    - 0.0
+    - 1.0
+    convergence:
+      n_iters: 200
+      first_energy: 4.557371444440243
+      last_energy: -18.924599760639158
+      min_energy: -19.48089219075598
+      min_at_iter: 198
+    eigenvalue: -19.48089219075598
+  SPSA:
+    objective: -3.0002344600529933
+    matches_classical: false
+    elapsed_seconds: 30.248454093933105
+    decoded_bits:
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    decoded_units:
+    - 4.0
+    - 1.0
+    - 0.0
+    - 1.0
+    convergence:
+      n_iters: 451
+      first_energy: 9.818388697315365
+      last_energy: -19.371157119072667
+      min_energy: -19.39098436742135
+      min_at_iter: 340
+    eigenvalue: -19.371157119072667
+  NFT:
+    objective: -0.0410784922995043
+    matches_classical: false
+    elapsed_seconds: 24.81829810142517
+    decoded_bits:
+    - 1.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 0.0
+    decoded_units:
+    - 3.0
+    - 2.0
+    - 0.0
+    - 7.0
+    convergence:
+      n_iters: 408
+      first_energy: 4.557371444440243
+      last_energy: -20.75355973155189
+      min_energy: -20.75833812581934
+      min_at_iter: 401
+    eigenvalue: -20.75355973155189
+penalty_lambda_sweep:
+  lambda_values_tested:
+  - 0
+  - 1
+  - 10
+  - 100
+  - 1000
+  - 10000
+  noisy_sampler:
+    shots: 2000
+    backend_options:
+      noise_model: 7481894a7c192524
+      method: statevector
+      device: GPU
+      batched_shots_gpu: true
+      batched_shots_gpu_max_qubits: 16
+    sampler_seed: 42
+  results:
+    '0':
+      objective: 0.0031984078840378337
+      matches_classical: false
+      decoded_bits:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 1.0
+      decoded_units:
+      - 15.0
+      - 0.0
+      - 6.0
+      - 14.0
+      convergence:
+        n_iters: 250
+        first_energy: -4.7537403946934566e-05
+        last_energy: -0.0009249505894497583
+        min_energy: -0.0009767615740663594
+        min_at_iter: 248
+      eigenvalue: -0.0009767615740663594
+      budget_constraint_value: 3.327373090305266
+      budget_constraint_satisfied: false
+      frontier_return: 0.005743399467270201
+      frontier_volatility: 0.0720654582483743
+      frontier_soft_match: false
+    '1':
+      objective: -0.0354389039484821
+      matches_classical: false
+      decoded_bits:
+      - 1.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      decoded_units:
+      - 9.0
+      - 1.0
+      - 0.0
+      - 1.0
+      convergence:
+        n_iters: 250
+        first_energy: -0.7969138583630573
+        last_energy: -1.966523483490857
+        min_energy: -1.9694451753850135
+        min_at_iter: 228
+      eigenvalue: -1.9694451753850135
+      budget_constraint_value: 0.8095188541060798
+      budget_constraint_satisfied: false
+      frontier_return: 0.0014235828902100902
+      frontier_volatility: 0.019423653806572565
+      frontier_soft_match: false
+    '10':
+      objective: -0.6562215389392527
+      matches_classical: false
+      decoded_bits:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      decoded_units:
+      - 0.0
+      - 0.0
+      - 4.0
+      - 2.0
+      convergence:
+        n_iters: 250
+        first_energy: -7.704860909182735
+        last_energy: -19.40902212173316
+        min_energy: -19.43791554337751
+        min_at_iter: 243
+      eigenvalue: -19.43791554337751
+      budget_constraint_value: 0.7435999984741211
+      budget_constraint_satisfied: false
+      frontier_return: 0.001572972679907025
+      frontier_volatility: 0.022344088957206597
+      frontier_soft_match: false
+    '100':
+      objective: -0.4396877379063326
+      matches_classical: false
+      decoded_bits:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      decoded_units:
+      - 0.0
+      - 4.0
+      - 2.0
+      - 4.0
+      convergence:
+        n_iters: 250
+        first_energy: -30.68239375526634
+        last_energy: -197.48575770734578
+        min_energy: -197.5606285608175
+        min_at_iter: 243
+      eigenvalue: -197.5606285608175
+      budget_constraint_value: 0.9335959779326489
+      budget_constraint_satisfied: true
+      frontier_return: 0.0012635544805086807
+      frontier_volatility: 0.018721999604551308
+      frontier_soft_match: false
+    '1000':
+      objective: -1.2588152507380317
+      matches_classical: false
+      decoded_bits:
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 0.0
+      - 0.0
+      decoded_units:
+      - 1.0
+      - 4.0
+      - 3.0
+      - 3.0
+      convergence:
+        n_iters: 250
+        first_energy: -1081.2125392789972
+        last_energy: -1997.795157326466
+        min_energy: -1999.7832916439038
+        min_at_iter: 244
+      eigenvalue: -1999.7832916439038
+      budget_constraint_value: 1.0354981850872367
+      budget_constraint_satisfied: true
+      frontier_return: 0.0015389745236484684
+      frontier_volatility: 0.02119386715721308
+      frontier_soft_match: false
+    '10000':
+      objective: -4.126382170852431
+      matches_classical: false
+      decoded_bits:
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      decoded_units:
+      - 2.0
+      - 1.0
+      - 5.0
+      - 1.0
+      convergence:
+        n_iters: 250
+        first_energy: -12986.332586055665
+        last_energy: -20054.027014542124
+        min_energy: -20132.291934268684
+        min_at_iter: 237
+      eigenvalue: -20132.291934268684
+      budget_constraint_value: 0.9796834073808997
+      budget_constraint_satisfied: true
+      frontier_return: 0.0016600715528727397
+      frontier_volatility: 0.025159507451339557
+      frontier_soft_match: false
+  matched_lambdas: []
+  best_lambda_selected: 10000
+ansatz_optimizer_sweep_noisy:
+  optimizers_actually_run:
+  - Cobyla
+  - NFT
+  noise_model:
+    class: NoiseModel
+    num_error_channels: 161
+    basis_gates:
+    - cx
+    - delay
+    - ecr
+    - for_loop
+    - id
+    - if_else
+    - measure
+    - reset
+    - rz
+    - switch_case
+    - sx
+    - x
+  results:
+    Cobyla:
+      PauliTwo:
+        objective: -2.7314969028916085
+        matches_classical: false
+        elapsed_seconds: 857.6227095127106
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 0.0
+        - 1.0
+        - 0.0
+        - 4.0
+        convergence:
+          n_iters: 100
+          first_energy: -1.7789219843047297
+          last_energy: -17.65084712224886
+          min_energy: -17.857573685619688
+          min_at_iter: 98
+        eigenvalue: -17.857573685619688
+      TwoLocal linear:
+        objective: -1.2928351072731377
+        matches_classical: false
+        elapsed_seconds: 1130.6156449317932
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 4.0
+        - 0.0
+        - 1.0
+        convergence:
+          n_iters: 122
+          first_energy: 5.2295206714034
+          last_energy: -16.931722491612028
+          min_energy: -16.931722491612028
+          min_at_iter: 121
+        eigenvalue: -16.931722491612028
+      TwoLocal full:
+        objective: 0.0007218052013824287
+        matches_classical: false
+        elapsed_seconds: 1172.004915714264
+        decoded_bits:
+        - 1.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 11.0
+        - 0.0
+        - 0.0
+        - 2.0
+        convergence:
+          n_iters: 122
+          first_energy: 2.510847991309886
+          last_energy: -11.70035434735927
+          min_energy: -11.70035434735927
+          min_at_iter: 121
+        eigenvalue: -11.70035434735927
+      TwoLocal circular:
+        objective: -0.4326802014981479
+        matches_classical: false
+        elapsed_seconds: 1251.5882980823517
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 0.0
+        - 3.0
+        - 1.0
+        convergence:
+          n_iters: 122
+          first_energy: 1.4234612497053145
+          last_energy: -14.326239252698246
+          min_energy: -14.326239252698246
+          min_at_iter: 121
+        eigenvalue: -14.326239252698246
+      TwoLocal pairwise:
+        objective: -3.7267161135320293
+        matches_classical: false
+        elapsed_seconds: 1141.2163705825806
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 0.0
+        - 0.0
+        - 1.0
+        convergence:
+          n_iters: 122
+          first_energy: 5.0962806414297805
+          last_energy: -17.6706864510487
+          min_energy: -17.6706864510487
+          min_at_iter: 121
+        eigenvalue: -17.6706864510487
+      RealAmplit. linear:
+        objective: -1.235254218843321
+        matches_classical: false
+        elapsed_seconds: 581.5513727664948
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 4.0
+        - 3.0
+        - 5.0
+        - 2.0
+        convergence:
+          n_iters: 100
+          first_energy: 0.2062344064275756
+          last_energy: -15.280371022827556
+          min_energy: -15.280371022827556
+          min_at_iter: 99
+        eigenvalue: -15.280371022827556
+      RealAmplit. full:
+        objective: -0.9946469373915724
+        matches_classical: false
+        elapsed_seconds: 728.9463684558868
+        decoded_bits:
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 6.0
+        - 12.0
+        - 1.0
+        - 0.0
+        convergence:
+          n_iters: 100
+          first_energy: -1.8822170144511825
+          last_energy: -13.439740027644154
+          min_energy: -15.858254030784781
+          min_at_iter: 98
+        eigenvalue: -15.858254030784781
+      RealAmplit. circular:
+        objective: -0.0927678768441715
+        matches_classical: false
+        elapsed_seconds: 614.3552651405334
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        decoded_units:
+        - 0.0
+        - 0.0
+        - 2.0
+        - 8.0
+        convergence:
+          n_iters: 100
+          first_energy: 1.3758453122061949
+          last_energy: -11.044890883045367
+          min_energy: -11.585802301468222
+          min_at_iter: 97
+        eigenvalue: -11.585802301468222
+      RealAmplit. pairwise:
+        objective: -1.2078437539535631
+        matches_classical: false
+        elapsed_seconds: 690.6424038410187
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 0.0
+        - 0.0
+        - 1.0
+        - 5.0
+        convergence:
+          n_iters: 100
+          first_energy: -0.11535102964755838
+          last_energy: -15.923226467867435
+          min_energy: -16.365367505514975
+          min_at_iter: 98
+        eigenvalue: -16.365367505514975
+    NFT:
+      PauliTwo:
+        objective: -0.8105508324187926
+        matches_classical: false
+        elapsed_seconds: 888.489275932312
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 2.0
+        - 0.0
+        - 5.0
+        convergence:
+          n_iters: 103
+          first_energy: -1.7789219843047297
+          last_energy: -19.71404025117954
+          min_energy: -19.71404025117954
+          min_at_iter: 96
+        eigenvalue: -19.71404025117954
+      TwoLocal linear:
+        objective: -0.8105508324187926
+        matches_classical: false
+        elapsed_seconds: 924.0781056880951
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 2.0
+        - 0.0
+        - 5.0
+        convergence:
+          n_iters: 103
+          first_energy: 5.2295206714034
+          last_energy: -19.323010558160274
+          min_energy: -19.323010558160274
+          min_at_iter: 102
+        eigenvalue: -19.323010558160274
+      TwoLocal full:
+        objective: -2.767318617553443
+        matches_classical: false
+        elapsed_seconds: 957.8650569915771
+        decoded_bits:
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 3.0
+        - 2.0
+        - 1.0
+        - 0.0
+        convergence:
+          n_iters: 103
+          first_energy: 2.510847991309886
+          last_energy: -15.304971405852834
+          min_energy: -15.304971405852834
+          min_at_iter: 102
+        eigenvalue: -15.304971405852834
+      TwoLocal circular:
+        objective: -0.8105508324187926
+        matches_classical: false
+        elapsed_seconds: 1019.9139401912689
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 2.0
+        - 0.0
+        - 5.0
+        convergence:
+          n_iters: 103
+          first_energy: 1.4234612497053145
+          last_energy: -19.063655099348114
+          min_energy: -19.063655099348114
+          min_at_iter: 102
+        eigenvalue: -19.063655099348114
+      TwoLocal pairwise:
+        objective: -0.8105508324187926
+        matches_classical: false
+        elapsed_seconds: 933.9019014835358
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        decoded_units:
+        - 1.0
+        - 2.0
+        - 0.0
+        - 5.0
+        convergence:
+          n_iters: 103
+          first_energy: 5.0962806414297805
+          last_energy: -19.340920709115153
+          min_energy: -19.343720318829245
+          min_at_iter: 97
+        eigenvalue: -19.340920709115153
+      RealAmplit. linear:
+        objective: -3.9226019946993467
+        matches_classical: false
+        elapsed_seconds: 576.3726122379303
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 0.0
+        - 1.0
+        - 0.0
+        - 3.0
+        convergence:
+          n_iters: 103
+          first_energy: 0.2062344064275756
+          last_energy: -15.971047629090485
+          min_energy: -15.971047629090485
+          min_at_iter: 102
+        eigenvalue: -15.971047629090485
+      RealAmplit. full:
+        objective: -2.6751149064420523
+        matches_classical: false
+        elapsed_seconds: 721.5129396915436
+        decoded_bits:
+        - 1.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 5.0
+        - 2.0
+        - 0.0
+        - 0.0
+        convergence:
+          n_iters: 103
+          first_energy: -1.8822170144511825
+          last_energy: -16.010945805110875
+          min_energy: -16.010945805110875
+          min_at_iter: 102
+        eigenvalue: -16.010945805110875
+      RealAmplit. circular:
+        objective: -5.926062477609215
+        matches_classical: false
+        elapsed_seconds: 609.3977508544922
+        decoded_bits:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        decoded_units:
+        - 0.0
+        - 15.0
+        - 0.0
+        - 8.0
+        convergence:
+          n_iters: 103
+          first_energy: 1.3758453122061949
+          last_energy: -11.01385435560686
+          min_energy: -11.01385435560686
+          min_at_iter: 102
+        eigenvalue: -11.01385435560686
+      RealAmplit. pairwise:
+        objective: -2.1304827222813567
+        matches_classical: false
+        elapsed_seconds: 687.8642635345459
+        decoded_bits:
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 1.0
+        - 0.0
+        - 0.0
+        decoded_units:
+        - 2.0
+        - 3.0
+        - 0.0
+        - 2.0
+        convergence:
+          n_iters: 103
+          first_energy: -0.11535102964755838
+          last_energy: -17.865844209855805
+          min_energy: -17.942161140841286
+          min_at_iter: 101
+        eigenvalue: -17.865844209855805
+efficient_frontier_monte_carlo:
+  n_random_portfolios_sampled: 30000
+  sampling_seed: 42
+  note: Raw per-point cloud not embedded (tens of thousands of numbers); fully reproducible via np.random.default_rng(RANDOM_SEED).dirichlet(np.ones(N),
+    size=...) as coded in this notebook. Saved PNGs show the full cloud.
+  return_stats:
+    min: 0.00014685020645410852
+    max: 0.0023371291501556534
+    mean: 0.0013134211287200341
+    std: 0.00036528679130830717
+  volatility_stats:
+    min: 0.01295116709957709
+    max: 0.0349821462119103
+    mean: 0.019069906149086126
+    std: 0.004002465412980106
+  classical_optimal_return: 0.0020925859231765193
+  classical_optimal_volatility: 0.028464771562492056
+final_conclusions:
+  best_ansatz: RealAmplit. circular
+  best_optimizer: SPSA
+  best_lambda: 10000
+  qubit_count_this_run: 15
+  qubit_count_paper_reported: 12
+  encoding_savings_vs_one_hot: 15 qubits vs 48 with one-hot
+artifacts:
+  plot_dir: /content/drive/MyDrive/quantum-portfolio-optimization/.plots
+  plot_files:
+  - convergence_ansatzes.png
+  - convergence_optimizers.png
+  - efficient_frontier.png
+  - lambda_frontier.png
+  - noisy_convergence.png
+  - price_history.png
+  price_data_dir: /content/drive/MyDrive/quantum-portfolio-optimization/price_data
+  joblib_cache_dir: /content/drive/MyDrive/quantum-portfolio-optimization/.cache_dir
+missing_top_level_names: []
+section_errors: {}

@@ -1,0 +1,396 @@
+{
+  "generated_at": "2026-07-12T23:15:16.335563",
+  "paper_end_date": "2022-10-21",
+  "div_cutoff_date": "2023-02-18",
+  "tickers": {
+    "AAPL": {
+      "fixed_csv": "price_data/AAPL.csv",
+      "split_correction_factor": 1.0,
+      "post_end_date_splits": [],
+      "dividend_excess_factor": 0.9848804347689551,
+      "dividend_undo_factor": 1.0153516758961627,
+      "post_end_date_dividends_count": 13,
+      "manual_residual_correction_factor": 1.0,
+      "table1_verification": [
+        {
+          "date": "2016-12-23",
+          "actual": 27.21787698929528,
+          "expected": 27.219765,
+          "pct_diff": 0.006936175623551903,
+          "passed": true
+        },
+        {
+          "date": "2016-12-27",
+          "actual": 27.390742486774087,
+          "expected": 27.392632,
+          "pct_diff": 0.006897888548686371,
+          "passed": true
+        },
+        {
+          "date": "2016-12-28",
+          "actual": 27.273942417108227,
+          "expected": 27.275822,
+          "pct_diff": 0.006891021989271631,
+          "passed": true
+        },
+        {
+          "date": "2016-12-29",
+          "actual": 27.266935691103832,
+          "expected": 27.26882,
+          "pct_diff": 0.006910122609520796,
+          "passed": true
+        },
+        {
+          "date": "2016-12-30",
+          "actual": 27.054367349563087,
+          "expected": 27.056236,
+          "pct_diff": 0.006906542495088464,
+          "passed": true
+        },
+        {
+          "date": "2017-01-03",
+          "actual": 27.131454892018848,
+          "expected": 27.133329,
+          "pct_diff": 0.006907032974656192,
+          "passed": true
+        },
+        {
+          "date": "2017-01-04",
+          "actual": 27.101086602777578,
+          "expected": 27.102961,
+          "pct_diff": 0.006915839278309428,
+          "passed": true
+        },
+        {
+          "date": "2017-01-05",
+          "actual": 27.23890297719736,
+          "expected": 27.240784,
+          "pct_diff": 0.0069051713146085015,
+          "passed": true
+        },
+        {
+          "date": "2017-01-06",
+          "actual": 27.54257231320266,
+          "expected": 27.544472,
+          "pct_diff": 0.006896798738202894,
+          "passed": true
+        },
+        {
+          "date": "2017-01-09",
+          "actual": 27.79484930869424,
+          "expected": 27.796768,
+          "pct_diff": 0.0069025697727194205,
+          "passed": true
+        },
+        {
+          "date": "2017-01-10",
+          "actual": 27.82287814934145,
+          "expected": 27.824797,
+          "pct_diff": 0.0068961892464173705,
+          "passed": true
+        },
+        {
+          "date": "2017-01-11",
+          "actual": 27.972376273694486,
+          "expected": 27.974308,
+          "pct_diff": 0.006905358679522307,
+          "passed": true
+        }
+      ],
+      "all_checks_passed": true
+    },
+    "IBM": {
+      "fixed_csv": "price_data/IBM.csv",
+      "split_correction_factor": 1.0,
+      "post_end_date_splits": [],
+      "dividend_excess_factor": 0.8942200551003249,
+      "dividend_undo_factor": 1.118292968600226,
+      "post_end_date_dividends_count": 13,
+      "manual_residual_correction_factor": 1.0,
+      "table1_verification": [
+        {
+          "date": "2016-12-23",
+          "actual": 119.44155886945822,
+          "expected": 119.262428,
+          "pct_diff": 0.1501989121487782,
+          "passed": true
+        },
+        {
+          "date": "2016-12-27",
+          "actual": 119.74964571558976,
+          "expected": 119.570061,
+          "pct_diff": 0.15019204145908144,
+          "passed": true
+        },
+        {
+          "date": "2016-12-28",
+          "actual": 119.06900500008187,
+          "expected": 118.890434,
+          "pct_diff": 0.15019795459899984,
+          "passed": true
+        },
+        {
+          "date": "2016-12-29",
+          "actual": 119.36278385283312,
+          "expected": 119.183701,
+          "pct_diff": 0.1502578383877498,
+          "passed": true
+        },
+        {
+          "date": "2016-12-30",
+          "actual": 118.92569470502589,
+          "expected": 118.747368,
+          "pct_diff": 0.15017318533400728,
+          "passed": true
+        },
+        {
+          "date": "2017-01-03",
+          "actual": 119.78548822017572,
+          "expected": 119.60582,
+          "pct_diff": 0.15021695447238922,
+          "passed": true
+        },
+        {
+          "date": "2017-01-04",
+          "actual": 121.26855396694012,
+          "expected": 121.086693,
+          "pct_diff": 0.15019071248408875,
+          "passed": true
+        },
+        {
+          "date": "2017-01-05",
+          "actual": 120.86730732371883,
+          "expected": 120.686058,
+          "pct_diff": 0.15018248729180517,
+          "passed": true
+        },
+        {
+          "date": "2017-01-06",
+          "actual": 121.46198916426758,
+          "expected": 121.279861,
+          "pct_diff": 0.15017181151583062,
+          "passed": true
+        },
+        {
+          "date": "2017-01-09",
+          "actual": 120.1150925137164,
+          "expected": 119.934898,
+          "pct_diff": 0.15024360442312726,
+          "passed": true
+        },
+        {
+          "date": "2017-01-10",
+          "actual": 118.58899187213375,
+          "expected": 118.41111,
+          "pct_diff": 0.15022397149537148,
+          "passed": true
+        },
+        {
+          "date": "2017-01-11",
+          "actual": 120.18670073580397,
+          "expected": 120.006439,
+          "pct_diff": 0.1502100531488705,
+          "passed": true
+        }
+      ],
+      "all_checks_passed": true
+    },
+    "NFLX": {
+      "fixed_csv": "price_data/NFLX.csv",
+      "split_correction_factor": 10.0,
+      "post_end_date_splits": [
+        {
+          "date": "2025-11-17",
+          "ratio": 10.0
+        }
+      ],
+      "dividend_excess_factor": 1.0,
+      "dividend_undo_factor": 1.0,
+      "post_end_date_dividends_count": 0,
+      "manual_residual_correction_factor": 1.0,
+      "table1_verification": [
+        {
+          "date": "2016-12-23",
+          "actual": 125.59000015258789,
+          "expected": 125.589996,
+          "pct_diff": 3.3064639092163206e-06,
+          "passed": true
+        },
+        {
+          "date": "2016-12-27",
+          "actual": 128.35000038146973,
+          "expected": 128.350006,
+          "pct_diff": 4.377506831613489e-06,
+          "passed": true
+        },
+        {
+          "date": "2016-12-28",
+          "actual": 125.8899974822998,
+          "expected": 125.889999,
+          "pct_diff": 1.2055764639458703e-06,
+          "passed": true
+        },
+        {
+          "date": "2016-12-29",
+          "actual": 125.32999992370605,
+          "expected": 125.330002,
+          "pct_diff": 1.6566615378795597e-06,
+          "passed": true
+        },
+        {
+          "date": "2016-12-30",
+          "actual": 123.80000114440918,
+          "expected": 123.800003,
+          "pct_diff": 1.498861695590518e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-03",
+          "actual": 127.4899959564209,
+          "expected": 127.489998,
+          "pct_diff": 1.6029328837985446e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-04",
+          "actual": 129.4099998474121,
+          "expected": 129.410004,
+          "pct_diff": 3.2088615630638306e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-05",
+          "actual": 131.80999755859375,
+          "expected": 131.809998,
+          "pct_diff": 3.348807101288715e-07,
+          "passed": true
+        },
+        {
+          "date": "2017-01-06",
+          "actual": 131.07000350952148,
+          "expected": 131.070007,
+          "pct_diff": 2.663064265764629e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-09",
+          "actual": 130.9500026702881,
+          "expected": 130.949997,
+          "pct_diff": 4.3301170062126175e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-10",
+          "actual": 129.8900032043457,
+          "expected": 129.889999,
+          "pct_diff": 3.23685098668964e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-11",
+          "actual": 130.50000190734863,
+          "expected": 130.5,
+          "pct_diff": 1.4615698335727968e-06,
+          "passed": true
+        }
+      ],
+      "all_checks_passed": true
+    },
+    "TSLA": {
+      "fixed_csv": "price_data/TSLA.csv",
+      "split_correction_factor": 1.0,
+      "post_end_date_splits": [],
+      "dividend_excess_factor": 1.0,
+      "dividend_undo_factor": 1.0,
+      "post_end_date_dividends_count": 0,
+      "manual_residual_correction_factor": 1.0,
+      "table1_verification": [
+        {
+          "date": "2016-12-23",
+          "actual": 14.22266674041748,
+          "expected": 14.222667,
+          "pct_diff": 1.8251325088006468e-06,
+          "passed": true
+        },
+        {
+          "date": "2016-12-27",
+          "actual": 14.635333061218262,
+          "expected": 14.635333,
+          "pct_diff": 4.182908749620255e-07,
+          "passed": true
+        },
+        {
+          "date": "2016-12-28",
+          "actual": 14.649333000183105,
+          "expected": 14.649333,
+          "pct_diff": 1.2499209803513813e-09,
+          "passed": true
+        },
+        {
+          "date": "2016-12-29",
+          "actual": 14.312000274658203,
+          "expected": 14.312,
+          "pct_diff": 1.919076325713155e-06,
+          "passed": true
+        },
+        {
+          "date": "2016-12-30",
+          "actual": 14.246000289916992,
+          "expected": 14.246,
+          "pct_diff": 2.0350764547730134e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-03",
+          "actual": 14.465999603271484,
+          "expected": 14.466,
+          "pct_diff": 2.742489388418831e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-04",
+          "actual": 15.13266658782959,
+          "expected": 15.132667,
+          "pct_diff": 2.7237129436772133e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-05",
+          "actual": 15.116666793823242,
+          "expected": 15.116667,
+          "pct_diff": 1.3639035472873047e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-06",
+          "actual": 15.267333030700684,
+          "expected": 15.267333,
+          "pct_diff": 2.0108739938271391e-07,
+          "passed": true
+        },
+        {
+          "date": "2017-01-09",
+          "actual": 15.41866683959961,
+          "expected": 15.418667,
+          "pct_diff": 1.040299980920565e-06,
+          "passed": true
+        },
+        {
+          "date": "2017-01-10",
+          "actual": 15.324666976928711,
+          "expected": 15.324667,
+          "pct_diff": 1.5055001768945784e-07,
+          "passed": true
+        },
+        {
+          "date": "2017-01-11",
+          "actual": 15.315333366394043,
+          "expected": 15.315333,
+          "pct_diff": 2.392334807327835e-06,
+          "passed": true
+        }
+      ],
+      "all_checks_passed": true
+    }
+  }
+}
